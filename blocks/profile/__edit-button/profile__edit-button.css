@@ -1,0 +1,9 @@
+.profile__edit-button {
+    margin-top: 32px;
+    margin-left: 18px;
+    max-height: 24px;
+}
+
+.profile__edit-button:hover{
+    opacity: 0.6;
+}
