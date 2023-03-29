@@ -1,9 +1,20 @@
 .profile__add-button {
     align-self: center;
-    height: 50px;
     margin: 0 0 0 auto;
+    height: 50px;
+    width: 150px;
+    background-color: black;
+    border: 1px white solid;
 }
 
 .profile__add-button:hover {
     opacity: 0.6;
+}
+
+@media screen and (max-width: 650px) {
+    .profile__add-button {
+        margin: 0;
+        margin-top: 36px;
+        width: 282px;
+    }
 }

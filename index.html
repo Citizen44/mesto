@@ -10,59 +10,63 @@
   <div class="page">
     <header class="header">
       <img class="header__logo" src="./images/logo.svg" alt="место логотип">
-      <img class="header__line" src="./images/Line.svg" alt="линия">
+      <hr class="header__line">
     </header>
     <main class="content">
       <section class="profile">
         <img class="profile__avatar" src="./images/profile__avatar.jpg" alt="мужик">
         <div class="profile__info">
-          <p class="profile__name">Жак-Ив Кусто</p>
+          <div class="profile__container">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <img class="profile__edit-button" src="./images/Edit Button.svg" alt="кнопка редактирования">
+          </div>
           <p class="profile__job">Исследователь океана</p>
         </div>
-        <img class="profile__edit-button" src="./images/Edit Button.svg" alt="кнопка редактирования">
-        <img class="profile__add-button" src="./images/profile__add-button.svg" alt="кнопка добавления">
+        <button class="profile__add-button">
+          <img class="profile__add-vector" src="./images/Vector.svg" alt="кнопка добавления">
+        </button>
       </section>
       <section class="grid-cards">
         <div class="card">
           <img class="card__image" src="./images/grid 1.jpg" alt="картинка">
           <div class="card__description">
             <p class="card__title">Карачаевск</p>
-            <img class="card__like-button" src="./images/like-button.svg" alt="кнопка лайка">
+            <div class="card__like-button"></div>
           </div>
         </div>
         <div class="card">
           <img class="card__image" src="./images/grid 2.png" alt="картинка">
           <div class="card__description">
             <p class="card__title">Гора Эльбрус</p>
-            <img class="card__like-button" src="./images/like-button.svg" alt="кнопка лайка">
+            <div class="card__like-button"></div>
           </div>
         </div>
         <div class="card">
           <img class="card__image" src="./images/grid 3.png" alt="картинка">
           <div class="card__description">
             <p class="card__title">Домбай</p>
-            <img class="card__like-button" src="./images/like-button.svg" alt="кнопка лайка">
+            <div class="card__like-button"></div>
           </div>
         </div>
         <div class="card">
           <img class="card__image" src="./images/grid 2.png" alt="картинка">
           <div class="card__description">
             <p class="card__title">Гора Эльбрус</p>
-            <img class="card__like-button" src="./images/like-button.svg" alt="кнопка лайка">
+            <div class="card__like-button"></div>
           </div>
         </div>
         <div class="card">
           <img class="card__image" src="./images/grid 3.png" alt="картинка">
           <div class="card__description">
             <p class="card__title">Домбай</p>
-            <img class="card__like-button" src="./images/like-button.svg" alt="кнопка лайка">
+            <div class="card__like-button"></div>
           </div>
         </div>
         <div class="card">
           <img class="card__image" src="./images/grid 1.jpg" alt="картинка">
           <div class="card__description">
             <p class="card__title">Карачаево-Ч...</p>
-            <img class="card__like-button" src="./images/like-button.svg" alt="кнопка лайка">
+            <div class="card__like-button"></div>
           </div>
         </div>
       </section>
@@ -75,8 +79,8 @@
     <div class="popup__container">
       <p class="popup__title">Редактировать профиль</p>
       <form class="form">
-        <input class="form__name" type="text" placeholder="">
-        <input class="form__job" type="text" placeholder="">
+        <input class="form__name" type="text" name="name">
+        <input class="form__job" type="text" name="job">
       </form>
       <img class="popup__close-button" src="./images/Close Icon.svg" alt="закрыть">
       <div class="popup__save-button">
@@ -84,4 +88,5 @@
       </div>
     </div>
   </div>
+  <script src="./index.js"></script>
 </body>

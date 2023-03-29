@@ -9,3 +9,11 @@
     text-align: center;
     color: #FFFFFF;
 }
+
+
+@media screen and (max-width: 1279px) {
+    .popup__save-button {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

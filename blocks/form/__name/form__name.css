@@ -9,4 +9,13 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 1279px) {
+    .form__name {
+        width: 238px;
+    }
 }

@@ -5,3 +5,17 @@
     gap: 20px 17px;
     padding-bottom: 66px;
 }
+
+@media screen and (max-width: 900px) {
+    .grid-cards {
+        grid-template-columns: repeat(2, 282px);
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .grid-cards {
+        grid-template-columns: repeat(1, 282px);
+        gap: 20px 0;
+        padding-bottom: 48px;
+    }
+}
