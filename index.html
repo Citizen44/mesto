@@ -10,63 +10,60 @@
   <div class="page">
     <header class="header">
       <img class="header__logo" src="./images/logo.svg" alt="место логотип">
-      <hr class="header__line">
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="./images/profile__avatar.jpg" alt="мужик">
+        <img class="profile__avatar" src="./images/profile__avatar.jpg" alt="аватар">
         <div class="profile__info">
           <div class="profile__container">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <img class="profile__edit-button" src="./images/Edit Button.svg" alt="кнопка редактирования">
+            <button class="profile__edit-button" type="button"></button>
           </div>
           <p class="profile__job">Исследователь океана</p>
         </div>
-        <button class="profile__add-button">
-          <img class="profile__add-vector" src="./images/Vector.svg" alt="кнопка добавления">
-        </button>
+        <button class="profile__add-button" type="button"></button>
       </section>
       <section class="grid-cards">
         <div class="card">
-          <img class="card__image" src="./images/grid 1.jpg" alt="картинка">
+          <img class="card__image" src="./images/grid-1.jpg" alt="старое здание">
           <div class="card__description">
-            <p class="card__title">Карачаевск</p>
-            <div class="card__like-button"></div>
+            <h2 class="card__title">Карачаевск</h2>
+            <button class="card__like-button" type="button"></button>
           </div>
         </div>
         <div class="card">
-          <img class="card__image" src="./images/grid 2.png" alt="картинка">
+          <img class="card__image" src="./images/grid-2.png" alt="пейзаж Эльбруса">
           <div class="card__description">
-            <p class="card__title">Гора Эльбрус</p>
-            <div class="card__like-button"></div>
+            <h2 class="card__title">Гора Эльбрус</h2>
+            <button class="card__like-button" type="button"></button>
           </div>
         </div>
         <div class="card">
-          <img class="card__image" src="./images/grid 3.png" alt="картинка">
+          <img class="card__image" src="./images/grid-3.png" alt="горы и лес">
           <div class="card__description">
-            <p class="card__title">Домбай</p>
-            <div class="card__like-button"></div>
+            <h2 class="card__title">Домбай</h2>
+            <button class="card__like-button" type="button"></button>
           </div>
         </div>
         <div class="card">
-          <img class="card__image" src="./images/grid 2.png" alt="картинка">
+          <img class="card__image" src="./images/grid-2.png" alt="пейзаж Эльбруса">
           <div class="card__description">
-            <p class="card__title">Гора Эльбрус</p>
-            <div class="card__like-button"></div>
+            <h2 class="card__title">Гора Эльбрус</h2>
+            <button class="card__like-button" type="button"></button>
           </div>
         </div>
         <div class="card">
-          <img class="card__image" src="./images/grid 3.png" alt="картинка">
+          <img class="card__image" src="./images/grid-3.png" alt="горы и лес">
           <div class="card__description">
-            <p class="card__title">Домбай</p>
-            <div class="card__like-button"></div>
+            <h2 class="card__title">Домбай</h2>
+            <button class="card__like-button" type="button"></button>
           </div>
         </div>
         <div class="card">
-          <img class="card__image" src="./images/grid 1.jpg" alt="картинка">
+          <img class="card__image" src="./images/grid-1.jpg" alt="старое здание">
           <div class="card__description">
-            <p class="card__title">Карачаево-Ч...</p>
-            <div class="card__like-button"></div>
+            <h2 class="card__title">Карачаево-Ч...</h2>
+            <button class="card__like-button" type="button"></button>
           </div>
         </div>
       </section>
@@ -77,17 +74,15 @@
   </div>
   <div class="popup">
     <div class="popup__container">
-      <p class="popup__title">Редактировать профиль</p>
-      <form class="form">
-        <input class="form__name" type="text" name="name">
-        <input class="form__job" type="text" name="job">
+      <h3 class="popup__title">Редактировать профиль</h3>
+      <form class="form" name="form">
+        <input class="form__input form__input_type_name" type="text" name="name">
+        <input class="form__input form__input_type_job" type="text" name="job">
+        <button class="popup__save-button" type="submit">Сохранить</button>
       </form>
-      <img class="popup__close-button" src="./images/Close Icon.svg" alt="закрыть">
-      <div class="popup__save-button">
-        <p class="popup__save-text">Сохранить</p>
-      </div>
+      <button class="popup__close-button" type="button"></button>
     </div>
   </div>
-  <script src="./index.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>

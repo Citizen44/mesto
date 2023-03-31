@@ -2,20 +2,18 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 430px;
-    height: 330px;
-    left: 545px;
-    top: 193px;
+    max-width: 430px;
+    min-height: 330px;
+    align-content: center;
+    justify-content: center;
     background: #FFFFFF;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 650px) {
     .popup__container {
-       width: 282px;
-       height: 322px;
-       left: 19px;
-       top: 123px;
+       max-width: 282px;
+       min-height: 322px;
     }
 }

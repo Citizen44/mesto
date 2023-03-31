@@ -1,7 +1,8 @@
 .profile {
     display: flex;
-    width: 880px;
+    width: 100%;
     padding-bottom: 50px;
+    padding-top: 40px;
 }
 
 @media screen and (max-width: 900px) {
@@ -16,5 +17,6 @@
         align-items: center;
         width: 100%;
         padding-bottom: 36px;
+        padding-top: 31.6px;
     }
 }

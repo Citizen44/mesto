@@ -1,7 +1,7 @@
 .card__description {
     margin: 20px auto 31px 21px;
     display: flex;
-    width: 246px;
-    height: 23px;
+    max-width: 246px;
+    max-height: 23px;
     align-items: baseline;
 }
