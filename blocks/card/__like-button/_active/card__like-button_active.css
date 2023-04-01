@@ -1,6 +1,5 @@
 .card__like-button_active {
     margin: 0 5px 0 auto;
     background: url(../../../../images/like-button_active.svg) center top;
-    width: 22px;
     height: 19px;
 }
