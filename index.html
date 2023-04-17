@@ -24,48 +24,7 @@
         <button class="profile__add-button" type="button"></button>
       </section>
       <section class="grid-cards">
-        <div class="card">
-          <img class="card__image" src="./images/grid-1.jpg" alt="старое здание">
-          <div class="card__description">
-            <h2 class="card__title">Карачаевск</h2>
-            <button class="card__like-button" type="button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card__image" src="./images/grid-2.png" alt="пейзаж Эльбруса">
-          <div class="card__description">
-            <h2 class="card__title">Гора Эльбрус</h2>
-            <button class="card__like-button" type="button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card__image" src="./images/grid-3.png" alt="горы и лес">
-          <div class="card__description">
-            <h2 class="card__title">Домбай</h2>
-            <button class="card__like-button" type="button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card__image" src="./images/grid-2.png" alt="горный пейзаж">
-          <div class="card__description">
-            <h2 class="card__title">Гора Эльбрус</h2>
-            <button class="card__like-button" type="button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card__image" src="./images/grid-3.png" alt="лес плавно перетекающий в горную местность">
-          <div class="card__description">
-            <h2 class="card__title">Домбай</h2>
-            <button class="card__like-button" type="button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img class="card__image" src="./images/grid-1.jpg" alt="старинное одинокое здание">
-          <div class="card__description">
-            <h2 class="card__title">Карачаево-Ч...</h2>
-            <button class="card__like-button" type="button"></button>
-          </div>
-        </div>
+
       </section>
     </main>
     <footer class="footer">
@@ -83,6 +42,34 @@
       <button class="popup__close-button" type="button"></button>
     </div>
   </div>
-  <script src="./scripts/index.js"></script>
+  <div class="popup" id="add-popup">
+    <div class="popup__container">
+      <h3 class="popup__title">Новое место</h3>
+      <form class="form" name="addForm">
+        <input id="input-title" class="form__input form__input_type_name" type="text" name="title" placeholder="Название">
+        <input id="input-image" class="form__input form__input_type_job" type="url" name="image" placeholder="Ссылка на картинку">
+        <button class="popup__save-button" type="submit">Создать</button>
+      </form>
+      <button class="popup__close-button" type="button"></button>
+    </div>
+  </div>
+  <div class="popup popup_image-popup" id="image-popup">
+    <div class="popup__image-container">
+      <img class="popup__image" src="" alt="">
+      <h3 class="popup__title popup__title_image"></h3>
+      <button class="popup__close-button" type="button"></button>
+    </div>
+  </div>
+  <template id="card-template">
+    <div class="card">
+      <button class="card__delete-button" type="button"></button>
+      <img class="card__image" src="./images/grid-1.jpg" alt="старое здание">
+      <div class="card__description">
+        <h2 class="card__title">Карачаевск</h2>
+        <button class="card__like-button" type="button"></button>
+      </div>
+    </div> 
+  </template>
+  <script src="./scripts/index.js" defer></script>
 </body>
 </html>

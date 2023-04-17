@@ -1,5 +1,6 @@
 .card__title {
     margin: 0;
+    max-width: 219px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 900;
