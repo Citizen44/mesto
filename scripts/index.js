@@ -1,50 +1,58 @@
-let editButton = document.querySelector('.profile__edit-button');
-let popup = document.querySelector('.popup');
-let addPopup = document.getElementById('add-popup');
-let closeButton = document.querySelector('.popup__close-button');
-let form = document.querySelector('.form')
-let profileName = document.querySelector('.profile__name');
-let profileJob = document.querySelector('.profile__job');
-let formName = document.querySelector('.form__input_type_name');
-let formJob = document.querySelector('.form__input_type_job');
-let addButton = document.querySelector('.profile__add-button');
+// элементы  EditProfile:
+const editButton = document.querySelector('.profile__edit-button');
+const popup = document.querySelector('.popup_type_edit-profile');
+const closeEditProfilePopupButton = document.querySelector('.popup__close-button');
+const profileName = document.querySelector('.profile__name');
+const profileJob = document.querySelector('.profile__job');
+// элементы addCards:
+const addCardsPopup = document.querySelector('.popup_type_add-cards');
+const addCardsButton = document.querySelector('.profile__add-button');
+// элементы формы:
+const form = document.querySelector('.form')
+const formName = document.querySelector('.form__input_type_name');
+const formJob = document.querySelector('.form__input_type_job');
 
+// слушатель editButton:
 editButton.addEventListener('click', function() {
     openPopup(popup);
     formName.value = profileName.textContent;
     formJob.value = profileJob.textContent;
 });
 
-addButton.addEventListener('click', function() {
-  openPopup(addPopup);
+// слушатель addCardsButton:
+addCardsButton.addEventListener('click', function() {
+  openPopup(addCardsPopup);
 });
 
+// общая функция открытия:
 function openPopup(popup) {
   popup.classList.add('popup_opened');
 };
 
+// общая функция закрытия:
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 };
 
+//  функция, закрывающая все попапы на странице:
 const popupList = Array.from(document.querySelectorAll('.popup'));
 popupList.forEach((popup) => {
-  const closeButton = popup.querySelector('.popup__close-button');
-  closeButton.addEventListener('click', function() {
+  const closeEditProfilePopupButton = popup.querySelector('.popup__close-button');
+  closeEditProfilePopupButton.addEventListener('click', function() {
     closePopup(popup);
   })
 });
 
-function handleFormSubmit (evt) {
+//  функция, обрабатывающая сохранение данных в форме редактирования профиля:
+function handleEditProfileSubmit (evt) {
     evt.preventDefault();
     profileName.textContent = formName.value;
     profileJob.textContent = formJob.value;
     closePopup(popup);
 };
+form.addEventListener('submit', handleEditProfileSubmit);
 
-form.addEventListener('submit', handleFormSubmit);
-
-
+//  массив с данными карточек:
 let initialCards = [
     {
       name: 'Архыз',
@@ -72,7 +80,7 @@ let initialCards = [
     }
   ];
 
-  
+  //  функция добавления карточки:
   function addCard (evt) {
     evt.preventDefault();
       const inputImage = document.getElementById('input-image');
@@ -86,8 +94,12 @@ let initialCards = [
       newCard.name = inputTitle.value;
       newCard.link = inputImage.value ; 
     
-      renderCardElement(createCardElement(newCard));
-      closePopup(addPopup);
+      const renderNewCardElement = (cardElement) => {
+        cardGrid.prepend(cardElement);
+      };
+
+      renderNewCardElement(createCardElement(newCard));
+      closePopup(addCardsPopup);
   };
 
   addForm.addEventListener('submit', addCard);
@@ -104,11 +116,14 @@ let initialCards = [
     imageElement.alt = cardData.name;
     titleElement.innerHTML = cardData.name;
 
-    const imagePopup = document.getElementById('image-popup')
+    // элементы imagePopup:
+    const imagePopup = document.querySelector('.popup_type_zoom-image');
+    const photoPopupimage = imagePopup.querySelector('.popup__image');
+    const photoPopuptext = imagePopup.querySelector('.popup__title_image');
+
     const openPhotoPopup = (cardData) => {
     openPopup(imagePopup);
-    let photoPopupimage = imagePopup.querySelector('.popup__image');
-    let photoPopuptext = imagePopup.querySelector('.popup__title_image');
+
     photoPopupimage.src = cardData.link;
     photoPopupimage.alt = cardData.name;
     photoPopuptext.textContent = cardData.name;
@@ -134,7 +149,7 @@ let initialCards = [
   };
 
   const renderCardElement = (cardElement) => {
-    cardGrid.prepend(cardElement);
+    cardGrid.append(cardElement);
   };
 
   initialCards.forEach((card) => {

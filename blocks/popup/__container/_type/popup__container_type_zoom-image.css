@@ -1,0 +1,7 @@
+.popup__container_type_zoom-image {
+    max-width: none;
+    min-height: auto;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+}
