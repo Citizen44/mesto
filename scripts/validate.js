@@ -64,10 +64,12 @@
     });
   };
   
-  enableValidation({
+  const config = {
     formSelector: '.form',
     inputSelector: '.form__input',
     submitButtonSelector: '.popup__save-button',
     inactiveButtonClass: 'popup__save-button_disabled',
     inputErrorClass: 'form__input_type_invalid'
-  });
+  };
+
+  enableValidation(config);

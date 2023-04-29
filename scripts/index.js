@@ -18,13 +18,7 @@ editButton.addEventListener('click', function() {
   editProfileNameInput.value = profileName.textContent;
   editProfileJobInput.value = profileJob.textContent;
 
-  enableValidation({
-    formSelector: '.form',
-    inputSelector: '.form__input',
-    submitButtonSelector: '.popup__save-button',
-    inactiveButtonClass: 'popup__save-button_disabled',
-    inputErrorClass: 'form__input_type_invalid'
-  });
+  toggleButtonValidity(config, editProfileForm);
 });
 
 // слушатель addCardsButton:
