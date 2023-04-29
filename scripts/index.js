@@ -17,16 +17,28 @@ editButton.addEventListener('click', function() {
   openPopup(editProfilePopup);
   editProfileNameInput.value = profileName.textContent;
   editProfileJobInput.value = profileJob.textContent;
+
+  enableValidation({
+    formSelector: '.form',
+    inputSelector: '.form__input',
+    submitButtonSelector: '.popup__save-button',
+    inactiveButtonClass: 'popup__save-button_disabled',
+    inputErrorClass: 'form__input_type_invalid'
+  });
 });
 
 // слушатель addCardsButton:
 addCardsButton.addEventListener('click', function() {
   openPopup(addCardsPopup);
+  
+  const addForm = document.forms.addForm;
+  addForm.reset();
 });
 
 // общая функция открытия:
 function openPopup(editProfilePopup) {
   editProfilePopup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupByEsc);
 };
 
 // общая функция закрытия:
@@ -34,14 +46,43 @@ function closePopup(editProfilePopup) {
   editProfilePopup.classList.remove('popup_opened');
 };
 
+// функция закрытия при нажатии на Esc:
+function closePopupByEsc (evt) {
+  const openedPopup = document.querySelector('.popup_opened');
+
+  if (evt.key === 'Escape') {
+    if (openedPopup) {
+      closePopup(openedPopup);
+    }
+  }
+};
+
+// функция закрытия при нажатии на Overlay:
+function closePopupByOverlay (openedPopup) {
+  openedPopup.addEventListener('mousedown', (evt) => {
+    if (evt.target === evt.currentTarget) {
+      if (openedPopup) {
+        closePopup(openedPopup);
+      };
+    };
+  });
+};
+
+// закрываем все попапы на странице c Esc и Overlay:
+const popups = document.querySelectorAll('.popup');
+popups.forEach((openedPopup) => {
+  closePopupByEsc(openedPopup);
+  closePopupByOverlay(openedPopup);
+});
+
 //  функция, закрывающая все попапы на странице:
 const popupList = Array.from(document.querySelectorAll('.popup'));
 
 popupList.forEach((editProfilePopup) => {
   const closeEditProfilePopupButton = editProfilePopup.querySelector('.popup__close-button');
   closeEditProfilePopupButton.addEventListener('click', function() {
-  closePopup(editProfilePopup);
-  })
+    closePopup(editProfilePopup);
+  });
 });
 
 //  функция, обрабатывающая сохранение данных в форме редактирования профиля:
@@ -93,7 +134,7 @@ function addCard (evt) {
   };
 
   newCard.name = inputTitle.value;
-  newCard.link = inputImage.value ; 
+  newCard.link = inputImage.value;
     
   const renderNewCardElement = (cardElement) => {
     cardGrid.prepend(cardElement);

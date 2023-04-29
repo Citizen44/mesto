@@ -34,9 +34,11 @@
   <div class="popup popup_type_edit-profile">
     <div class="popup__container">
       <h3 class="popup__title">Редактировать профиль</h3>
-      <form class="form" name="form">
-        <input class="form__input form__input_type_name" type="text" name="name">
-        <input class="form__input form__input_type_job" type="text" name="job">
+      <form class="form" name="form" novalidate>
+        <input id="username" class="form__input form__input_type_name" type="text" name="name" required minlength="2" maxlength="40"> 
+        <span id="username-error" class="form__error-message"></span>
+        <input id="job" class="form__input form__input_type_job" type="text" name="job" required minlength="2" maxlength="200">
+        <span id="job-error" class="form__error-message"></span>
         <button class="popup__save-button" type="submit">Сохранить</button>
       </form>
       <button class="popup__close-button" type="button"></button>
@@ -45,9 +47,11 @@
   <div class="popup popup_type_add-cards" id="add-popup">
     <div class="popup__container">
       <h3 class="popup__title">Новое место</h3>
-      <form class="form" name="addForm">
-        <input id="input-title" class="form__input form__input_type_name" type="text" name="title" placeholder="Название">
-        <input id="input-image" class="form__input form__input_type_job" type="url" name="image" placeholder="Ссылка на картинку">
+      <form class="form" name="addForm" novalidate>
+        <input id="input-title" class="form__input form__input_type_name" type="text" name="title" placeholder="Название" required minlength="2" maxlength="30">
+        <span id="input-title-error" class="form__error-message"></span>
+        <input id="input-image" class="form__input form__input_type_job" type="url" name="image" placeholder="Ссылка на картинку" required>
+        <span id="input-image-error" class="form__error-message"></span>
         <button class="popup__save-button" type="submit">Создать</button>
       </form>
       <button class="popup__close-button" type="button"></button>
@@ -71,5 +75,6 @@
     </div> 
   </template>
   <script src="./scripts/index.js" defer></script>
+  <script src="./scripts/validate.js"></script>
 </body>
 </html>

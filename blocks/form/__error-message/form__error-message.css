@@ -1,0 +1,15 @@
+.form__error-message {
+    position: absolute;
+    top: 32px;
+    left: 0;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FF0000;
+}
+
+.form__error-message:nth-of-type(2) {
+    top: 90px;
+}
