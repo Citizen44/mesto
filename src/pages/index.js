@@ -4,79 +4,89 @@ import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
-import { initialCards } from "../components/constants.js";
-import { config } from "../components/constants.js";
+import { initialCards, validationConfig, profileEditButton, buttonAddCards, nameInput, jobInput, profileName, profileJob} from "../utils/constants.js";
 
-import '../pages/index.css';
-
-const profileEditButton = document.querySelector(".profile__edit-button");
-const buttonAddCards = document.querySelector(".profile__add-button");
+import "../pages/index.css";
 
 const profileInfo = new UserInfo(".profile__name", ".profile__job");
 
-const profileUserPopup = new PopupWithForm(".popup_type_edit-profile", handleprofileUserPopup);
+const profileUserPopup = new PopupWithForm(
+  ".popup_type_edit-profile",
+  handleProfileFormSubmit
+);
 profileUserPopup.setEventListeners();
 
 // слушатель editButton:
 profileEditButton.addEventListener("click", () => {
   profileUserPopup.open();
   formEditValidation.resetValidation();
+
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
 });
 
-function handleprofileUserPopup(data) {
+function handleProfileFormSubmit(data) {
   const dataUserValue = {
     userName: data.name,
     userJob: data.job,
   };
+  profileUserPopup.close();
   profileInfo.setUserInfo(dataUserValue);
 }
 
-const popupAddingCards = new PopupWithForm(".popup_type_add-cards", handlepopupAddingCards);
+const popupAddingCards = new PopupWithForm(
+  ".popup_type_add-cards",
+  handleCardFormSubmit
+);
 popupAddingCards.setEventListeners();
 
-function handlepopupAddingCards(data) {
+function handleCardFormSubmit(data) {
   const dataCardValue = {
     link: data.image,
     name: data.title,
   };
-  createCard(dataCardValue);
-};
+  cardsSection.addItem(createCard(dataCardValue));
+  popupAddingCards.close();
+}
 
 // слушатель addCardsButton:
 buttonAddCards.addEventListener("click", function () {
   popupAddingCards.open();
-  FormAddCardsValidation.resetValidation();
+  formAddCardsValidation.resetValidation();
 });
 
 const imagePopup = new PopupWithImage(".popup_type_zoom-image");
 imagePopup.setEventListeners();
 
-function handleCardClick() {
-  imagePopup.open(this._link, this._name);
+function handleCardClick(link, name) {
+  imagePopup.openPhoto(link, name);
 }
 
 //  Создание экземпляров класса Section:
-const defaultCardList = new Section(
-  { 
+const cardsSection = new Section(
+  {
     data: initialCards,
     renderer: (item) => {
-      createCard(item);
-    } 
-  }, ".grid-cards");
+      cardsSection.addItem(createCard(item));
+    },
+  },
+  ".grid-cards"
+);
 
-defaultCardList.renderItems();
+cardsSection.renderItems();
 
 function createCard(data) {
   const newCard = new Card(data, "card-template", handleCardClick);
   const cardElement = newCard.generateCard();
-  defaultCardList.addItem(cardElement);
+
+  return cardElement;
 }
 
 //  Создание экземпляров класса FormValidator:
 const form = document.forms.form;
-const formEditValidation = new FormValidator(config, form);
+const formEditValidation = new FormValidator(validationConfig, form);
 formEditValidation.enableValidation();
 
 const formAdd = document.forms.addForm;
-const FormAddCardsValidation = new FormValidator(config, formAdd);
-FormAddCardsValidation.enableValidation();
+const formAddCardsValidation = new FormValidator(validationConfig, formAdd);
+formAddCardsValidation.enableValidation();

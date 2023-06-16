@@ -32,7 +32,8 @@ export class FormValidator {
 
   _setEventListeners() {
     this._buttonElement = this._formElement.querySelector(
-      this._config.submitButtonSelector);
+      this._config.submitButtonSelector
+    );
     this._inputList = Array.from(
       this._formElement.querySelectorAll(this._config.inputSelector)
     );
@@ -61,14 +62,14 @@ export class FormValidator {
     } else {
       this._disableButton();
     }
-  };
+  }
 
   resetValidation() {
     this._disableButton();
     this._inputList.forEach((inputElement) => {
-      this._hideInputError(inputElement)
+      this._hideInputError(inputElement);
     });
-  } 
+  }
 
   enableValidation() {
     this._setEventListeners();
