@@ -4,7 +4,7 @@ import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
-import { initialCards, validationConfig, profileEditButton, buttonAddCards, nameInput, jobInput, profileName, profileJob} from "../utils/constants.js";
+import { initialCards, validationConfig, profileEditButton, buttonAddCards, nameInput, jobInput} from "../utils/constants.js";
 
 import "../pages/index.css";
 
@@ -21,8 +21,9 @@ profileEditButton.addEventListener("click", () => {
   profileUserPopup.open();
   formEditValidation.resetValidation();
 
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
+  const aboutInfo = profileInfo.getUserInfo();
+  nameInput.value = aboutInfo.name;
+  jobInput.value = aboutInfo.info;
 });
 
 function handleProfileFormSubmit(data) {
@@ -59,7 +60,7 @@ const imagePopup = new PopupWithImage(".popup_type_zoom-image");
 imagePopup.setEventListeners();
 
 function handleCardClick(link, name) {
-  imagePopup.openPhoto(link, name);
+  imagePopup.open(link, name);
 }
 
 //  Создание экземпляров класса Section:
